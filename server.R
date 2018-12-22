@@ -6,6 +6,7 @@ library(lattice)
 library(igraph)
 library(ggraph)
 library(ggplot2)
+library(udpipe)
 
 shinyServer(function(input, output,session) {
   set.seed=2092014   
