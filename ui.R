@@ -1,6 +1,10 @@
-#################################################
-#               Basic Text Analysis             #
-#################################################
+########################################################
+# Assginment 1:Shiny App around the UDPipe NLP workflow 
+#### Group details :							
+#### Kannan Nagarajan (PG ID: 11810122)
+#### Magesh Kuppusamy (PG ID: 11810135)
+#### Anand Raman (PG ID: 11810116)
+#########################################################
 
 library(shiny)
 library(text2vec)
@@ -20,9 +24,8 @@ library(ggplot2)
 
 shinyUI(fluidPage(
   
-  titlePanel("Assginmnet 1:Shiny App around the UDPipe NLP workflow "),
+  titlePanel("Assginment 1:Shiny App around the UDPipe NLP workflow "),
   
-  # Input in sidepanel:
   sidebarPanel(
     
     fileInput("file", "Upload text file"),
@@ -34,10 +37,10 @@ shinyUI(fluidPage(
                          "Noun" = "NOUN",
                          "proper noun" ="PRON",
                          "adverb" = "ADV",
-                          "verb"="VERB")
+                         "verb"="VERB")
                        ,
                        selected = c("ADJ","NOUN","PRON")
-                       ),
+    ),
     submitButton(text = "Apply Changes", icon("refresh"))
     
   ),
@@ -57,7 +60,7 @@ shinyUI(fluidPage(
                          p("You might observe no change in the outputs after clicking 'Apply Changes'. Wait for few seconds. As soon as all the computations
                            are over in back-end results will be refreshed",
                            align = "justify"),
-                        
+                         
                          downloadButton('downloadData1', 'Download Nokia Lumia reviews txt file'),br(),br(),
                          p("Please note that download will not work with RStudio interface. Download will work only in web-browsers. So open this app in a web-browser and then download the example file. For opening this app in web-browser click on \"Open in Browser\" "),
                          br(),
@@ -67,29 +70,29 @@ shinyUI(fluidPage(
                          br(),
                          
                          verbatimTextOutput("start")),
-                    
-                       tabPanel("Table of annotated documents", 
+                
+                tabPanel("Table of annotated documents", 
                          dataTableOutput('datatableOutput')),      
                 
                 
-                        tabPanel("Frequency of occurrence",
-                                 h4(p("UPOS (Universal Parts of Speech)\n frequency of occurrence")),
-                          plotOutput('posFreq')
-                         ),
-                        
-                        tabPanel("Most occurance",
-                                 h4(p("Most occurance of a word based on the POS selection from checkbox")),
+                tabPanel("Frequency of occurrence",
+                         h4(p("UPOS (Universal Parts of Speech)\n frequency of occurrence")),
+                         plotOutput('posFreq')
+                ),
+                
+                tabPanel("Most occurrence",
+                         h4(p("Most occurrences of a word based on the POS selection from checkbox")),
                          verbatimTextOutput("selectedPOS"),
                          plotOutput('mostOcc'),
-                         h4(p("Word Cloud based on the occurance")),
+                         h4(p("Word Cloud based on the occurrences")),
                          plotOutput('wordCloudFre')
-                        ) ,
-                        
-                       tabPanel('co-occurrences',h4(p("co-occurrences")),
-                                plotOutput('cooccureance')
-                        )
-                    
-                    )
+                ) ,
+                
+                tabPanel('co-occurrences',h4(p("co-occurrences based on the POS selection from checkbox")),
+                         plotOutput('cooccureance')
+                )
+                
+                         )
     )
-  )
+)
 )

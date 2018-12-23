@@ -1,6 +1,10 @@
-############################################################################
-#     Assginmnet 1:Shiny App around the UDPipe NLP workflow          #
-############################################################################
+########################################################
+# Assginment 1:Shiny App around the UDPipe NLP workflow 
+#### Group details :							
+#### Kannan Nagarajan (PG ID: 11810122)
+#### Magesh Kuppusamy (PG ID: 11810135)
+#### Anand Raman (PG ID: 11810116)
+#########################################################
 
 library(lattice)
 library(igraph)
